@@ -1,0 +1,55 @@
+{
+    "header": {
+    "phone1": " +237 655 45 67 89|",
+    "phone2": "+237 675 070 050",
+    "phone3": " |+33 7 58 10 31 17",
+    "email": "mobiliis03@gmail.com",
+    "position": "Ndogbong-Douala, Rue du Commissariat 10ème",
+    "home": "Accueil",
+    "services": "Nos services",
+    "mobiliis": "Mobiliis",
+    "destinations": "Destinations",
+    "offers": "Nos offres",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "myaccount": "Mon compte",
+    "courses": "Cours Langues",
+    "english": "Cours d'anglais: IELTS, TOEFL",
+    "german": "Cours d'Allemand: DSH, TestDaf",
+    "french": "Tests de Langue: TCF, TEF, DALF, DELF, TEF Canada",
+    "spanish": "Cours d'Espagnol"
+  },
+
+  
+  "accueil": {
+    "title": "Mobiliis",
+    "description": "Avec Mobiliis, Voyager sans frontières pour: étudier, explorer et evoluer. "
+  },
+
+  "footer": {
+  "followTitle": "SUIVEZ NOS ACTUALITÉS !",
+  "newsletter": "Abonnez-vous à notre Newsletter",
+  "emailPlaceholder": "Email",
+  "subscribe": "S'ABONNER",
+  "socialText": "Nous suivre sur :",
+  "contactTitle": "CONTACTEZ-NOUS",
+  "phone": "+237 675 070 050 | +33 7 58 10 31 17",
+  "email": "mobiliis03@gmail.com",
+  "address": "Ndogbong-Douala, Rue du Commissariat 10ème",
+  "hours": "Du lundi au vendredi de 8h30 à 18h00",
+  "offer": "Nos offres",
+  "sponsorship": "Parrainage",
+  "practicalInfo": "Informations pratiques",
+  "financing": "Financement",
+  "tuition": "Frais de scolarité",
+  "legalTitle": "INFORMATIONS LÉGALES",
+  "legalNotice": "Mentions Légales",
+  "privacy": "Politique de confidentialité",
+  "cookies": "Cookies et consentement",
+  "copyright": "Copyright © 2024 | Alex KUETCHE. EasyTech solution WebSite",
+  "updated": "Mise à jour : le 31 Octobre 2024"
+}
+
+  }
+  

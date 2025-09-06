@@ -1,0 +1,56 @@
+{
+   "header": {
+    "phone1": "+33 (0)1 23 45 67 89 |",
+    "phone2": "+237 675 07 00 50",
+    "phone3": "| +33 7 58 10 31 17",
+    "email": "akuetche55@gmail.com",
+    "position": "Ndogbong-Douala",
+    "home": "Home",
+    "services": "Our Services",
+    "mobiliis": "Mobiliis",
+    "destinations": "Destinations",
+    "offers": "Our Offers",
+    "logout": "Logout",
+    "login": "Login",
+    "signup": "Sign Up",
+    "myaccount": "My Account",
+    "courses": "Language Courses",
+    "english": "English Courses: IELTS, TOEFL",
+    "german": "German Courses: DSH, TestDaf",
+    "french": "French Tests: TCF, TEF, DALF, DELF, TEF Canada",
+    "spanish": "Spanish Courses"
+  },
+
+  
+  "accueil": {
+    "title": "Home",
+    "description": "The e-health sanctuary to manage your wellness schedule."
+  },
+
+
+  "footer": {
+  "followTitle": "FOLLOW OUR NEWS!",
+  "newsletter": "Subscribe to our Newsletter",
+  "emailPlaceholder": "Email",
+  "subscribe": "SUBSCRIBE",
+  "socialText": "Follow us on:",
+  "contactTitle": "CONTACT US",
+  "phone": "+237 675 070 050 | +33 7 58 10 31 17",
+  "email": "mobiliis03@gmail.com",
+  "address": "Ndogbong-Douala, Rue du Commissariat 10ème",
+  "hours": "Monday to Friday from 8:30am to 6:00pm",
+  "offer": "Our offers",
+  "sponsorship": "Sponsorship",
+  "practicalInfo": "Practical information",
+  "financing": "Financing",
+  "tuition": "Tuition fees",
+  "legalTitle": "LEGAL INFORMATION",
+  "legalNotice": "Legal notice",
+  "privacy": "Privacy policy",
+  "cookies": "Cookies and consent",
+  "copyright": "Copyright © 2024 | Alex KUETCHE. EasyTech solution WebSite",
+  "updated": "Updated: October 31, 2024"
+}
+
+  }
+  
