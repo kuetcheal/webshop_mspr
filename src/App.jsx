@@ -6,6 +6,8 @@ import NotFound from "./components/notFound";
 import Footer from "@/components/layout/footer";
 import ClientForm from "./components/client/ClientForm";
 import ClientList from "./components/admins/ClientList";
+import ProduitList from "./components/admins/ProduitList";
+import ProduitForm from "./components/produit/ProduitForm";
 
 import Navbar from "@/components/layout/Navbar";
 import Home from "@/pages/Home";
@@ -26,6 +28,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/footer" element={<Footer />} />
            <Route path="/ClientForm" element={<ClientForm />} />
+            <Route path="/ProduitForm" element={<ProduitForm />} />
+             <Route path="/ProduitList" element={<ProduitList />} />
             <Route path="/ClientList" element={<ClientList />} />
              <Route path="/products" element={<Products />} />
         <Route path="/categories" element={<Categories />} />
