@@ -6,47 +6,79 @@
   --border: #e5e7eb;
 }
 
-/* conteneur principal */
+/* conteneur */
 .prod-wrap {
+  position: relative;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 2rem 1rem;
-  color: var(--text);
+  padding: 2rem 1rem 1rem;
+  color: #111827;
   box-sizing: border-box;
+  background: none;        /* important */
+  z-index: 0;
 }
 
-/* ====== HERO (titre + sous-titre) ====== */
-.prod-hero { 
-    margin: 0 0 1.5rem;
-    margin-left: 40px;
- }
-.prod-hero__title {
-  margin: 0 0 .75rem;
-  font-weight: 900;
-  line-height: 1.08;
-  letter-spacing: -0.015em;
-  /* gros titre responsive (~64px sur grand écran) */
-  font-size: 50px;
-}
-.prod-hero__subtitle {
-  margin: 0;
-  color: var(--muted);
-  /* line-height: 1.75; */
-  font-size: clamp(0.98rem, 0.4vw + 0.9rem, 1.125rem);
-  max-width: 102ch;
+/* le fond en pleine largeur */
+.prod-wrap::before {
+  content: "";
+  position: absolute;
+  z-index: -1;             /* derrière le contenu */
+  top: 0;
+  bottom: 0;
+
+  /* “truc” pour faire un bloc 100vw centré
+     qui dépasse du conteneur */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+
+  background: linear-gradient(to bottom, #FFFFFF 50%, #F7F7F7 50%);
 }
 
-/* ====== GRID 1->2->3 ====== */
-.prod-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem 1.5rem;
-  justify-items: center;
-}
-@media (min-width: 640px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px){ .prod-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* ====== CARD (pile avec l'image) ====== */
+/* ===== Swiper wrapper ===== */
+.prod-swiper-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Le Swiper lui-même */
+.prod-swiper {
+  width: 100%;
+  max-width: var(--container);
+  overflow: visible;
+  padding-bottom: 1.25rem; /* espace pour la scrollbar */
+}
+
+/* Empêche toute répartition “space-between” par un style global */
+.prod-swiper .swiper-wrapper {
+  justify-content: flex-start !important;
+}
+
+/* === RÈGLE CRUCIALE ===
+   On impose au slide d'avoir une largeur fixe de 350px
+   ET de ne pas s'étirer : flex: 0 0 350px */
+.product-slide {
+  width: 350px !important;
+  flex: 0 0 350px !important;
+}
+
+/* Scrollbar (rendu par Swiper) */
+.swiper-scrollbar {
+  height: 7px;
+  background-color: #e0e0e0;
+  width: 100%;
+  max-width: var(--container);
+  margin: 10px auto 0;
+}
+.swiper-scrollbar-drag {
+  background-color: #000;
+  cursor: grab;
+}
+
+/* ====== Carte produit ====== */
 .product-card,
 .product-card__media,
 .product-card__body { box-sizing: border-box; }
@@ -63,7 +95,7 @@
 /* image 350x350 */
 .product-card__media {
   width: 100%;
-  height: 350px;
+  height: 300px;
   overflow: hidden;
   background: #f3f4f6;
   position: relative;
@@ -80,7 +112,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  padding: .44rem .6rem;
+  padding: 0.44rem 0.6rem;
   border-radius: 9px;
   font-size: .72rem;
   font-weight: 800;
@@ -92,7 +124,7 @@
 /* corps */
 .product-card__body {
   width: 100%;
-  padding: 12px 0 16px;
+  padding: 12px 10px 16px;
 }
 .product-card__title {
   margin: 0 0 .35rem;
@@ -155,3 +187,22 @@
   color: #9ca3af;
   font-size: .9rem;
 }
+
+/* ====== Bouton “Tous les produits” ====== */
+.prod-actions {
+  display: flex;
+  justify-content: start;
+  margin-top: 19px;
+}
+.btn-all {
+  display: inline-block;
+  background: var(--coffee);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: background .18s ease, transform .02s ease;
+}
+.btn-all:hover   { background: #000; }
+.btn-all:active  { transform: translateY(1px); }

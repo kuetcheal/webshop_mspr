@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import "./Home.css";
 import Affiche from "@/components/common/affiche"; 
+import ProduitHome from "@/components/common/produitHome"; 
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
       </section>
 
       {/* Section icônes + textes */}
-      <Affiche />
+      <Affiche />  <br /><br />
+      <ProduitHome />
     </>
   );
 }

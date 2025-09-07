@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getProducts, resolvePublicUrl } from "@/api/produitApi";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+//import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { useCart } from "@/context/CartContext";
 import "./AffichageProduit.css";
 
 const formatPrice = (n) =>
@@ -9,6 +11,7 @@ const formatPrice = (n) =>
     : n;
 
 export default function AffichageProduit() {
+  const { addItem, openCart } = useCart();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +27,19 @@ export default function AffichageProduit() {
 
   useEffect(() => { load(); }, []);
 
-  const addToCart = (p) => console.log("add to cart:", p);
+  const addToCart = (p) => {
+    addItem(
+     {
+       id: p.id,
+       name: p.name,
+       price: p.price,
+       imageUrl: p.imageUrl,
+        description: p.description,
+        stock: p.stock,
+      },
+      1 );
+     openCart(); // 👈 ouvre le tiroir
+  };
 
   if (loading) return <div className="prod-wrap">Chargement…</div>;
   if (!items.length) return <div className="prod-wrap">Aucun produit.</div>;

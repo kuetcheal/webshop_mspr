@@ -1,0 +1,103 @@
+/* Container 1300px */
+.cl-root {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 16px;
+  background: transparent;
+}
+
+.cl-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Header toolbar */
+.cl-header {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+@media (min-width: 720px) {
+  .cl-header { grid-template-columns: 1fr auto; align-items: end; }
+}
+.cl-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.cl-search {
+  width: min(340px, 60vw);
+  border: 1px solid #cfd4da;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: #fff;
+}
+.cl-pagesize {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.cl-pagesize select {
+  padding: 6px 8px;
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Table */
+.cl-table-wrapper { overflow-x: auto; }
+.cl-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 14px;
+  background: #fff;
+}
+.cl-table thead th {
+  background: #f7f7f8;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cl-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f1;
+  vertical-align: middle;
+}
+.cl-table tbody tr:hover { background: #fafafa; }
+.cl-col-actions { width: 150px; text-align: left; }
+
+/* Pagination */
+.cl-pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 6px;
+}
+.cl-count { color: #475569; }
+.cl-nav { display: flex; gap: 8px; align-items: center; }
+.cl-btn {
+  cursor: pointer;
+  border: 1px solid #cfd4da;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background .15s ease, border-color .15s ease;
+}
+.cl-btn:hover { background: #f4f4f5; border-color: #b8bec6; }
+.cl-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.cl-empty { text-align: center; padding: 14px; color: #6b7280; }
+
+.cl-loader { padding: 12px; }
+.cl-actions { display: flex; gap: 6px; align-items: center; }
