@@ -22,8 +22,8 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <Box component="footer" sx={{ bgcolor: '#004080', color: 'white', py: 4 }}>
-      <Grid container spacing={4} justifyContent="center" sx={{ bgcolor: '#004080' }}>
+    <Box component="footer" sx={{ bgcolor: '#7a5c2e', color: 'white', py: 4 }}>
+      <Grid container spacing={4} justifyContent="center" sx={{ bgcolor: '#7a5c2e' }}>
         <Grid item xs={12} sm={3} sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
           <Typography variant="h6" gutterBottom>{t('footer.followTitle')}</Typography>
           <Stack spacing={1}>
@@ -89,7 +89,7 @@ export default function Footer() {
         </Grid>
       </Grid>
 
-      <Box sx={{ bgcolor: '#004080', py: 5, color: 'white', textAlign: 'center', paddingTop: '40px' }}>
+      <Box sx={{ bgcolor: '#7a5c2e', py: 5, color: 'white', textAlign: 'center', paddingTop: '40px' }}>
         <Typography variant="body2">
           {t('footer.copyright')}
         </Typography>

@@ -1,3 +1,6 @@
+// src/pages/Products.jsx
+import AffichageProduit from "@/components/common/affichageProduit";
+
 export default function Products() {
-  return <h1 className="p-6 text-2xl">Tous les Produits</h1>;
+  return <AffichageProduit />;
 }

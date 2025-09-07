@@ -1,0 +1,157 @@
+:root {
+  --container: 1300px;
+  --coffee: #7a5c2e;
+  --text: #111827;
+  --muted: #4b5563;
+  --border: #e5e7eb;
+}
+
+/* conteneur principal */
+.prod-wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+/* ====== HERO (titre + sous-titre) ====== */
+.prod-hero { 
+    margin: 0 0 1.5rem;
+    margin-left: 40px;
+ }
+.prod-hero__title {
+  margin: 0 0 .75rem;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  /* gros titre responsive (~64px sur grand écran) */
+  font-size: 50px;
+}
+.prod-hero__subtitle {
+  margin: 0;
+  color: var(--muted);
+  /* line-height: 1.75; */
+  font-size: clamp(0.98rem, 0.4vw + 0.9rem, 1.125rem);
+  max-width: 102ch;
+}
+
+/* ====== GRID 1->2->3 ====== */
+.prod-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem 1.5rem;
+  justify-items: center;
+}
+@media (min-width: 640px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px){ .prod-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ====== CARD (pile avec l'image) ====== */
+.product-card,
+.product-card__media,
+.product-card__body { box-sizing: border-box; }
+
+.product-card {
+  width: 350px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* image 350x350 */
+.product-card__media {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #f3f4f6;
+  position: relative;
+}
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* badge rupture de stock */
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: .44rem .6rem;
+  border-radius: 9px;
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  background: #ef476f;
+}
+
+/* corps */
+.product-card__body {
+  width: 100%;
+  padding: 12px 0 16px;
+}
+.product-card__title {
+  margin: 0 0 .35rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.product-card__desc {
+  margin: 0 0 .7rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Prix | Disponible */
+.product-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: .8rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+.product-card__meta .label { font-weight: 600; }
+.product-card__meta .unit { color: var(--muted); margin-left: 4px; }
+.product-card__meta .sep { width: 1px; height: 18px; background: var(--border); }
+
+/* bouton Ajouter */
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  border-radius: 9999px;
+  background: var(--coffee);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s ease, transform .02s ease;
+}
+.btn-add:hover   { background: #000; }
+.btn-add:active  { transform: translateY(1px); }
+.btn-add:disabled{
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+.btn-add__icon { font-size: 22px; color: currentColor; }
+
+/* fallback si aucune image */
+.noimg {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #9ca3af;
+  font-size: .9rem;
+}

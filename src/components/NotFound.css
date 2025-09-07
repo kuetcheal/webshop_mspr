@@ -10,7 +10,7 @@
   
   .not-found-title {
     font-size: 6rem;
-    color: #004080;
+    color: #7a5c2e;
     font-weight: bold;
     margin-bottom: 0;
   }
@@ -25,7 +25,7 @@
     padding: 10px 20px;
     font-size: 1rem;
     color: white;
-    background-color: #004080;
+    background-color: #7a5c2e;
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -33,6 +33,6 @@
   }
   
   .not-found-button:hover {
-    background-color: #003060;
+    background-color: black;
   }
   

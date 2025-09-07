@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // import Home from "./components/home";
 import NotFound from "./components/notFound";
+import Affiche from "./components/common/affiche";
+import AffichageProduit from "./components/common/affichageProduit";
 import Footer from "@/components/layout/footer";
 import ClientForm from "./components/client/ClientForm";
 import ClientList from "./components/admins/ClientList";
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/footer" element={<Footer />} />
+           <Route path="/affiche" element={<Affiche />} />
+            <Route path="/affichageProduit" element={<AffichageProduit />} />
            <Route path="/ClientForm" element={<ClientForm />} />
             <Route path="/ProduitForm" element={<ProduitForm />} />
              <Route path="/ProduitList" element={<ProduitList />} />
