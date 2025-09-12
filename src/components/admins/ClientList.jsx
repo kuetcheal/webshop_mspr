@@ -35,9 +35,9 @@ export default function ClientList() {
 
   useEffect(() => {
     getClients()
-      .then(res => setRows(res.data))
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false));
+   .then(list => setRows(Array.isArray(list) ? list : []))
+   .catch(err => { console.error(err); setRows([]); })
+   .finally(() => setLoading(false));
   }, []);
 
   const handleDelete = async (id) => {
@@ -75,8 +75,7 @@ export default function ClientList() {
     e.preventDefault();
     try {
       const { id, ...payload } = editForm;
-      const res = await updateClient(id, payload);
-      const updated = res.data;
+       const updated = await updateClient(id, payload);
       setRows(prev => prev.map(c => (c.id === id ? updated : c)));
       setOpenEdit(false);
       setEditForm(null);

@@ -33,8 +33,8 @@ export default function ProduitList() {
     setLoading(true);
     try {
       const { data } = await getProducts();
-      setItems(data);
-      setPage(1);
+      const list = await getProducts();           
+      setItems(Array.isArray(list) ? list : []);
     } finally {
       setLoading(false);
     }

@@ -1,0 +1,156 @@
+/* Conteneur centré */
+.commande-page {
+  padding: 24px;
+}
+
+.commande-container {
+  width: 1300px;
+  max-width: calc(100% - 32px); /* resp. avec marges */
+  margin: 0 auto;
+}
+
+/* Titre */
+.cmd-title {
+  margin: 0 0 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Barre d’outils */
+.cmd-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* Recherche */
+.cmd-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px 10px;
+  min-width: 260px;
+  background: #fff;
+}
+
+.cmd-search__icon {
+  font-size: 18px;
+  margin-right: 6px;
+  color: #666;
+}
+
+.cmd-search__input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  color: #333;
+}
+
+/* Sélecteur page size */
+.cmd-pagesize {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #666;
+}
+
+.cmd-pagesize select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+}
+
+/* Carte / table */
+.cmd-tableCard {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cmd-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cmd-table thead {
+  background: #fafafa;
+}
+
+.cmd-table th,
+.cmd-table td {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.cmd-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cmd-tdCentered {
+  text-align: center;
+  color: #666;
+}
+
+.cmd-error {
+  color: #c62828;
+}
+
+/* Actions */
+.cmd-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Boutons */
+.btn {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:hover {
+  background: #f7f7f7;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--danger {
+  border-color: #e57373;
+  color: #b71c1c;
+}
+
+/* Pagination */
+.cmd-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+  color: #555;
+}
+
+.cmd-pageinfo {
+  min-width: 120px;
+  text-align: center;
+}

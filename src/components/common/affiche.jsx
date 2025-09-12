@@ -15,7 +15,7 @@ export default function Affiche() {
     { Icon: LocalCafeOutlined,     text: "Grand assortiment de café délicieux" },
   ];
 
-  const bg        = "#f5efe5";
+  const bg        = "#F7F7F7";
   const iconColor = "#7a5a3a";
   const textColor = "#4b3a2b";
 

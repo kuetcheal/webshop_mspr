@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createClient } from "@/api/clientApi.js";
-
+import "./clientForm.css"; // <- nouveau : styles uniquement
 
 export default function ClientForm() {
   const [form, setForm] = useState({
@@ -25,26 +25,82 @@ export default function ClientForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Nouveau client</h1>
-      <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4">
-        <input name="username"    value={form.username}    onChange={onChange} placeholder="Identifiant" required />
-        <div className="grid grid-cols-2 gap-4">
-          <input name="firstName" value={form.firstName}   onChange={onChange} placeholder="Prénom" required />
-          <input name="lastName"  value={form.lastName}    onChange={onChange} placeholder="Nom" required />
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <input name="postalCode" value={form.postalCode} onChange={onChange} placeholder="Code postal" />
-          <input name="city"       value={form.city}       onChange={onChange} placeholder="Ville" />
-        </div>
-        <input name="companyName"  value={form.companyName} onChange={onChange} placeholder="Entreprise" />
-        <textarea name="profile"   value={form.profile}     onChange={onChange} placeholder="Profil / notes" rows={4}/>
-        <button type="submit">Enregistrer</button>
-      </form>
+    <div className="cf-container">
+      <div className="cf-card">
+        <h1 className="cf-title">Nouveau client</h1>
 
-      {status === "loading" && <p>Envoi en cours…</p>}
-      {status === "success" && <p style={{color:"green"}}>Client créé ✅</p>}
-      {status === "error" && <p style={{color:"red"}}>Erreur lors de l’enregistrement</p>}
+        <form onSubmit={onSubmit} className="cf-form">
+          <input
+            className="cf-input"
+            name="username"
+            value={form.username}
+            onChange={onChange}
+            placeholder="email"
+            required
+          />
+
+          <div className="cf-row cf-col-2">
+            <input
+              className="cf-input"
+              name="firstName"
+              value={form.firstName}
+              onChange={onChange}
+              placeholder="Prénom"
+              required
+            />
+            <input
+              className="cf-input"
+              name="lastName"
+              value={form.lastName}
+              onChange={onChange}
+              placeholder="Nom"
+              required
+            />
+          </div>
+
+          <div className="cf-row cf-col-2">
+            <input
+              className="cf-input"
+              name="postalCode"
+              value={form.postalCode}
+              onChange={onChange}
+              placeholder="Code postal"
+            />
+            <input
+              className="cf-input"
+              name="city"
+              value={form.city}
+              onChange={onChange}
+              placeholder="Ville"
+            />
+          </div>
+
+          <input
+            className="cf-input"
+            name="companyName"
+            value={form.companyName}
+            onChange={onChange}
+            placeholder="Entreprise"
+          />
+
+          <textarea
+            className="cf-textarea"
+            name="profile"
+            value={form.profile}
+            onChange={onChange}
+            placeholder="Profil / notes"
+            rows={4}
+          />
+
+          <button type="submit" className="cf-btn cf-btn--primary">
+            Enregistrer
+          </button>
+        </form>
+
+        {status === "loading" && <p className="cf-alert cf-alert--info">Envoi en cours…</p>}
+        {status === "success" && <p className="cf-alert cf-alert--success">Client créé ✅</p>}
+        {status === "error" && <p className="cf-alert cf-alert--error">Erreur lors de l’enregistrement</p>}
+      </div>
     </div>
   );
 }

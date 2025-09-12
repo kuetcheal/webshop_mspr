@@ -10,7 +10,7 @@ export default function MobileMenu({ onClose }) {
         <Link to="/categories" onClick={onClose}>Catégories</Link>
         <Link to="/contact" onClick={onClose}>Contact</Link>
         <Link to="/wishlist" onClick={onClose}>Liste de souhaits</Link>
-        <Link to="/account" onClick={onClose}>Mon compte</Link>
+        <Link to="/login" onClick={onClose}>Mon compte</Link>
       </nav>
     </div>
   );

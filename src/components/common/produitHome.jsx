@@ -22,8 +22,8 @@ export default function AffichageProduit() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await getProducts();
-        setItems(data || []);
+        const list = await getProducts();           
+        setItems(Array.isArray(list) ? list : []);
       } finally {
         setLoading(false);
       }
@@ -32,8 +32,8 @@ export default function AffichageProduit() {
 
   const addToCart = (p) => console.log("add to cart:", p);
 
-  if (loading) return <div className="prod-wrap">Chargement…</div>;
-  if (!items.length) return <div className="prod-wrap">Aucun produit.</div>;
+  if (loading) return <div className="production">Chargement…</div>;
+  if (!items.length) return <div className="production">Aucun produit.</div>;
 
   return (
     <div className="prod-wrap">

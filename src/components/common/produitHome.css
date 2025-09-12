@@ -7,7 +7,7 @@
 }
 
 /* conteneur */
-.prod-wrap {
+.production {
   position: relative;
   max-width: var(--container);
   margin: 0 auto;
@@ -19,7 +19,7 @@
 }
 
 /* le fond en pleine largeur */
-.prod-wrap::before {
+.production::before {
   content: "";
   position: absolute;
   z-index: -1;             /* derrière le contenu */

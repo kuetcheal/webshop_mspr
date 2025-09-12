@@ -18,8 +18,8 @@ export default function AffichageProduit() {
   const load = async () => {
     setLoading(true);
     try {
-      const { data } = await getProducts();
-      setItems(data);
+      const list = await getProducts();           
+      setItems(Array.isArray(list) ? list : []);
     } finally {
       setLoading(false);
     }

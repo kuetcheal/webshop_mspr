@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/context/CartContext";
 import { resolvePublicUrl } from "@/api/produitApi";
+// import { Link } from "react-router-dom";
 import "./CartDrawer.css";
 
 import AddIcon from "@mui/icons-material/Add";
@@ -106,7 +107,9 @@ export default function CartDrawer() {
                 <div className="total-value">{total.toFixed(2)} €</div>
               </div>
 
-              <button className="btn-checkout">Passer la commande</button>
+              <Link to="/checkout" className="btn-checkout" onClick={closeCart}>
+                Passer la commande
+              </Link>
             </>
           )}
         </div>
