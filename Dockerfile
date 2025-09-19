@@ -6,13 +6,19 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install dependencies (including dev dependencies for build)
+RUN npm ci
 
 # Copy source code
 COPY . .
 
-# Build the app
+# Build the app with environment variables
+ARG VITE_API_BASE_URL_CLIENT
+ARG VITE_API_BASE_URL_PRODUIT
+ARG VITE_API_BASE_URL_COMMANDE
+ENV VITE_API_BASE_URL_CLIENT=$VITE_API_BASE_URL_CLIENT
+ENV VITE_API_BASE_URL_PRODUIT=$VITE_API_BASE_URL_PRODUIT
+ENV VITE_API_BASE_URL_COMMANDE=$VITE_API_BASE_URL_COMMANDE
 RUN npm run build
 
 # Production stage

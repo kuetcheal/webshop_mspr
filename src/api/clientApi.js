@@ -1,7 +1,7 @@
 // src/api/clientApi.js
 import http from "./http";
 
-const BASE = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, ""); // ex: http://localhost:8074/api
+const BASE = import.meta.env.VITE_API_BASE_URL_CLIENT?.replace(/\/$/, ""); // ex: http://localhost:8074/api
 
 const unwrap = (p) =>
   p.then((r) => r.data).catch((err) => {
