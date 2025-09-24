@@ -8,10 +8,10 @@ export default function ProduitForm({ onCreated }) {
     color: "",
     price: "",
     stock: "",
-    imageUrl: "", // Option URL (facultative si on choisit un fichier)
+    imageUrl: "",
   });
-  const [file, setFile] = useState(null);    // Option upload
-  const [preview, setPreview] = useState(""); // Aperçu local
+  const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -26,7 +26,6 @@ export default function ProduitForm({ onCreated }) {
     setPreview(f ? URL.createObjectURL(f) : "");
   };
 
-  // évite les fuites mémoire des ObjectURL
   useEffect(() => {
     return () => {
       if (preview) URL.revokeObjectURL(preview);
@@ -39,7 +38,6 @@ export default function ProduitForm({ onCreated }) {
     setError("");
 
     try {
-      // Si un fichier est sélectionné, on ignore imageUrl côté payload (le backend le remplira après l'upload)
       const payload = {
         name: form.name,
         description: form.description || null,
@@ -49,21 +47,27 @@ export default function ProduitForm({ onCreated }) {
         imageUrl: file ? null : (form.imageUrl || null),
       };
 
-      const { data: created } = await createProduct(payload);
+      // 1. Création du produit
+      const created = await createProduct(payload);
 
+      // 2. Upload image si fichier choisi
+      let finalProduit = created;
       if (file) {
-        await uploadProductImage(created.id, file);
+        finalProduit = await uploadProductImage(created.id, file);
       }
 
-      // reset
+      console.log("Produit final avec image :", finalProduit);
+
+      // reset formulaire
       setForm({ name: "", description: "", color: "", price: "", stock: "", imageUrl: "" });
       setFile(null);
       setPreview("");
 
-      onCreated?.();
+      // callback
+      onCreated?.(finalProduit);
     } catch (err) {
       console.error(err);
-      setError("Échec de création du produit.");
+      setError(err.message || "Échec de création du produit.");
     } finally {
       setLoading(false);
     }
@@ -108,7 +112,7 @@ export default function ProduitForm({ onCreated }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Stock *</label>
+          <label className="block text-sm font-medium">quantité *</label>
           <input
             type="number"
             name="stock"
@@ -130,7 +134,6 @@ export default function ProduitForm({ onCreated }) {
         />
       </div>
 
-      {/* Option A : URL directe */}
       <div>
         <label className="block text-sm font-medium">Image (URL)</label>
         <input
@@ -142,7 +145,6 @@ export default function ProduitForm({ onCreated }) {
         />
       </div>
 
-      {/* Option B : Upload fichier */}
       <div>
         <label className="block text-sm font-medium">Ou téléverser une image</label>
         <input type="file" accept="image/*" onChange={handleFile} />
