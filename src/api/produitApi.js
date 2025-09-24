@@ -33,6 +33,15 @@ export const uploadProductImage = (id, file) => {
   }));
 };
 
+// résout les URL publiques (uploads)
+export const resolvePublicUrl = (path) => {
+  if (!path) return "";
+  const origin = BASE.replace(/\/api$/, "");
+  return path.startsWith("/") ? `${origin}${path}` : `${origin}/${path}`;
+};
+
+
+
 export default {
   createProduct,
   getProducts,
@@ -40,4 +49,5 @@ export default {
   updateProduct,
   deleteProduct,
   uploadProductImage,
+  resolvePublicUrl,
 };
