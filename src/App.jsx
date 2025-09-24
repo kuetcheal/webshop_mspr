@@ -1,39 +1,69 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CartProvider } from './contexts/CartContext';
-import { AuthProvider } from './context/AuthContext';
-import Navbar from './components/layout/Navbar';
-import Home from './pages/Home';
-import Products from './pages/Products';
-// import ProductDetail from './pages/ProductDetail';
-import Checkout from './pages/Checkout';
-import Account from './pages/Account';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "@/context/AuthContext";
 
-function App() {
+// import Home from "./components/home";
+import NotFound from "./components/notFound";
+import Affiche from "./components/common/affiche";
+import AffichageProduit from "./components/common/affichageProduit";
+import ProduitHome from "./components/common/produitHome";
+import Footer from "@/components/layout/footer";
+import ClientForm from "./components/client/ClientForm";
+import ClientList from "./components/admins/ClientList";
+import ProduitList from "./components/admins/ProduitList";
+import CommandeList from "./components/admins/CommandeList";
+import Administrateur from "./components/admins/Administrateur";
+import ProduitForm from "./components/produit/ProduitForm";
+import Checkout from "@/pages/Checkout";
+import OrderConfirmation from "@/pages/OrderConfirmation";
+import Login from "@/pages/Login";
+
+import Navbar from "@/components/layout/Navbar";
+import CartDrawer from "@/components/layout/CartDrawer";
+import Home from "@/pages/Home";
+import Products from "@/pages/Products";
+import Categories from "@/pages/Categories";
+import Contact from "@/pages/Contact";
+import Account from "@/pages/Account";
+import { AdminPanelSettingsRounded } from "@mui/icons-material";
+
+
+const App = () => {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <Router>
-          <div className="App">
-            <Navbar />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<Products />} />
-                <Route path="/cart" element={<Checkout />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </main>
-          </div>
-        </Router>
-      </CartProvider>
+     <AuthProvider>
+    <Router>
+      <Navbar />
+      <Routes>
+
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/footer" element={<Footer />} />
+        <Route path="/affiche" element={<Affiche />} />
+        <Route path="/affichageProduit" element={<AffichageProduit />} />
+        <Route path="/produitHome" element={<ProduitHome />} />
+        <Route path="/ClientForm" element={<ClientForm />} />
+        <Route path="/ProduitForm" element={<ProduitForm />} />
+        <Route path="/ProduitList" element={<ProduitList />} />
+
+         <Route path="/CommandeList" element={<CommandeList />} />
+        <Route path="/ClientList" element={<ClientList />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/Admin" element={<AdminPanelSettingsRounded />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/Administrateur" element={<Administrateur />} />
+        <Route path="/checkout" element={<Checkout />} />
+<Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
+
+      </Routes>
+      <CartDrawer />
+      <Footer />
+    </Router>
     </AuthProvider>
   );
-}
+};
 
 export default App;
+

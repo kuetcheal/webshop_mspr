@@ -12,7 +12,7 @@ export default function Home() {
             <h1 className="hero__kicker">Top arrivage.</h1>
             <h2 className="hero__title">La collection de la nouvelle année</h2>
             <p className="hero__subtitle">
-              Notre dernière collection est là. Découvrez les tendances et les styles
+              Notre dernière collection est là. Découvrez les tendances et les meilleurs goûts
               pour bien commencer l’année.
             </p>
             <a className="hero__cta" href="/Products">Acheter maintenant</a>
