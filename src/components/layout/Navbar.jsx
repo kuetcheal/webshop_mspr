@@ -1,6 +1,7 @@
-// src/components/layout/Navbar.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
+import AuthModal from "@/components/AuthModal";
 import "./Navbar.css";
 import logo from "@/assets/logo5.png";
 
@@ -11,30 +12,26 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-import MobileMenu from "./MobileMenu";
 import SearchBar from "../common/SearchBar";
-import { useCart } from "@/context/CartContext"; // ✅
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-
-  const { count, openCart } = useCart(); // ✅
+  const [authOpen, setAuthOpen] = useState(false);
+  const { user } = useAuth();
+  const { count, openCart } = useCart();
 
   return (
     <header className="navbar">
       <div className="navbar-container">
         <div className="nav-left">
-          <IconButton className="burger only-mobile" onClick={() => setMobileOpen(true)} aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
           <Link to="/" className="navbar-logo" aria-label="Accueil">
             <img src={logo} alt="Paye ton kawa" />
           </Link>
         </div>
 
         <nav className="nav-center navbar-links">
-          <Link to="/">Acceuil</Link>
+          <Link to="/">Accueil</Link>
           <Link to="/products">Produits</Link>
           <Link to="/categories">Catégories</Link>
           <Link to="/contact">Contact</Link>
@@ -49,11 +46,16 @@ export default function Navbar() {
             <SearchIcon />
           </IconButton>
 
-          <Link to="/account" aria-label="Mon compte">
-            <IconButton><PersonOutlineIcon /></IconButton>
-          </Link>
+          {user ? (
+            <Link to="/account" aria-label="Mon compte">
+              <IconButton><PersonOutlineIcon /></IconButton>
+            </Link>
+          ) : (
+            <IconButton onClick={() => setAuthOpen(true)} aria-label="Connexion">
+              <PersonOutlineIcon />
+            </IconButton>
+          )}
 
-          {/* ✅ Badge relié au context + ouvre le drawer du context */}
           <IconButton onClick={openCart} aria-label="Panier">
             <Badge badgeContent={count} color="error">
               <ShoppingCartIcon />
@@ -68,10 +70,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* ✅ tu gardes uniquement le Drawer mobile du menu si tu veux */}
-      {/* <Drawer anchor="left"  open={mobileOpen} onClose={() => setMobileOpen(false)}>
-        <MobileMenu onClose={() => setMobileOpen(false)} />
-      </Drawer> */}
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </header>
   );
 }

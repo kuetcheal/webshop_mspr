@@ -1,0 +1,74 @@
+/* Fond semi-transparent */
+.cookie-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Boîte centrale */
+.cookie-popup {
+  max-width: 500px;        /* ✅ plus large */
+  background: #fff;        /* blanc pour contraste */
+  color: #333;
+  border-radius: 12px;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Titre */
+.cookie-popup h5 {
+  color: #6d4c41; /* ✅ couleur du bouton "Acheter maintenant" */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Lien */
+.cookie-popup .link {
+  color: #6d4c41; /* ✅ harmonisé */
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Bouton accepter */
+.btn-accept {
+  background-color: #6d4c41 !important; /* couleur café */
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+.btn-accept:hover {
+  background-color: #4e342e !important; /* marron plus foncé */
+  color: #fff !important;
+}
+
+/* Bouton refuser */
+.btn-refuse {
+  background-color: transparent !important;
+  border: 2px solid #6d4c41 !important;
+  color: #6d4c41 !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+.btn-refuse:hover {
+  background-color: #6d4c41 !important;
+  color: #fff !important;
+}
+
+
+/* Animation d’apparition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

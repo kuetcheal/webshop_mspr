@@ -1,0 +1,121 @@
+/* Palette café / warm */
+:root{
+  --cf-bg: transparent;                 /* laisse le fond de ta page */
+  --cf-card: #ffffff;                    /* carte blanche */
+  --cf-line: #eadfce;                    /* bordure crème */
+  --cf-text: #1f2937;                    /* texte principal (gris foncé) */
+  --cf-muted: #6b7280;                   /* texte secondaire */
+
+  --cf-coffee: #8b6a3e;                  /* brun doré */
+  --cf-coffee-700: #6e532f;              /* hover + focus */
+  --cf-shadow: 0 10px 24px rgba(139,106,62, .10);
+
+  --cf-success: #065f46;
+  --cf-error:   #991b1b;
+}
+
+/* reset minimal */
+*{ box-sizing:border-box }
+
+/* Wrapper */
+.cf-container{
+  min-height: 100dvh;
+  padding: 32px 16px;
+  display: grid;
+  place-items: start center;
+  background: var(--cf-bg);
+}
+
+/* Carte */
+.cf-card{
+  width: 100%;
+  max-width: 720px;
+  color: var(--cf-text);
+  background: var(--cf-card);
+  border: 1px solid var(--cf-line);
+  border-radius: 16px;
+  box-shadow: var(--cf-shadow);
+  padding: 28px;
+}
+
+/* Titre */
+.cf-title{
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+/* Form layout */
+.cf-form{ display: grid; gap: 16px; }
+.cf-row{ display: grid; gap: 16px; }
+.cf-col-2{ grid-template-columns: 1fr 1fr; }
+@media (max-width: 720px){ .cf-col-2{ grid-template-columns: 1fr; } }
+
+/* Inputs */
+.cf-input,
+.cf-textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--cf-line);
+  background: #fff;
+  color: var(--cf-text);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  font-size: 15px;
+}
+.cf-textarea{ resize: vertical; }
+.cf-input::placeholder, .cf-textarea::placeholder{ color: #9ca3af; }
+
+.cf-input:focus,
+.cf-textarea:focus{
+  border-color: var(--cf-coffee);
+  box-shadow: 0 0 0 3px rgba(139,106,62, .20);
+  background: #fffdf8;
+}
+
+/* Bouton primaire – style “Ajouter au panier” */
+.cf-btn{
+  margin-top: 4px;
+  appearance: none;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .05s, filter .15s, background .2s;
+}
+
+.cf-btn--primary{
+  color: #fff;
+  background: var(--cf-coffee);
+  box-shadow: 0 4px 0 rgba(0,0,0,.08);
+}
+.cf-btn--primary:hover{ background: var(--cf-coffee-700); filter: brightness(1.02); }
+.cf-btn--primary:active{ transform: translateY(1px); }
+
+/* Alertes (statuts) – tons doux */
+.cf-alert{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+.cf-alert--info{
+  background: #fff7ed;                  /* ambre pâle */
+  border-color: #f59e0b33;
+  color: #7c2d12;
+}
+.cf-alert--success{
+  background: #ecfdf5;
+  border-color: #10b98133;
+  color: var(--cf-success);
+}
+.cf-alert--error{
+  background: #fef2f2;
+  border-color: #ef444433;
+  color: var(--cf-error);
+}

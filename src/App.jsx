@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
+import PrivacyPolicy from "@/pages/PrivacyPolicy"
+import Register from "@/pages/Register";
 
 // import Home from "./components/home";
 import NotFound from "./components/notFound";
@@ -17,6 +19,7 @@ import ProduitForm from "./components/produit/ProduitForm";
 import Checkout from "@/pages/Checkout";
 import OrderConfirmation from "@/pages/OrderConfirmation";
 import Login from "@/pages/Login";
+import CookieBanner from "./components/CookieBanner";
 
 import Navbar from "@/components/layout/Navbar";
 import CartDrawer from "@/components/layout/CartDrawer";
@@ -45,6 +48,8 @@ const App = () => {
         <Route path="/ClientForm" element={<ClientForm />} />
         <Route path="/ProduitForm" element={<ProduitForm />} />
         <Route path="/ProduitList" element={<ProduitList />} />
+        <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+         <Route path="/register" element={<Register />} />
 
          <Route path="/CommandeList" element={<CommandeList />} />
         <Route path="/ClientList" element={<ClientList />} />
@@ -60,6 +65,7 @@ const App = () => {
       </Routes>
       <CartDrawer />
       <Footer />
+       <CookieBanner />
     </Router>
     </AuthProvider>
   );
