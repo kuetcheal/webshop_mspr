@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const t = localStorage.getItem("accessToken");
     if (t !== token) setToken(t);
-  }, []);
+  }, [token]);
 
   const login = async (u, p) => {
     const { accessToken } = await apiLogin(u, p);

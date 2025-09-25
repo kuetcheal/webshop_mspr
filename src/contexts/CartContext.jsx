@@ -12,7 +12,7 @@ const initialState = {
 // Actions du panier
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_TO_CART':
+    case 'ADD_TO_CART': {
       const existingItem = state.items.find(item => item.id === action.payload.id);
       
       if (existingItem) {
@@ -39,8 +39,9 @@ const cartReducer = (state, action) => {
           totalPrice: state.totalPrice + action.payload.price
         };
       }
+    }
 
-    case 'REMOVE_FROM_CART':
+    case 'REMOVE_FROM_CART': {
       const itemToRemove = state.items.find(item => item.id === action.payload);
       const filteredItems = state.items.filter(item => item.id !== action.payload);
       
@@ -50,8 +51,9 @@ const cartReducer = (state, action) => {
         totalItems: state.totalItems - itemToRemove.quantity,
         totalPrice: state.totalPrice - (itemToRemove.price * itemToRemove.quantity)
       };
+    }
 
-    case 'UPDATE_QUANTITY':
+    case 'UPDATE_QUANTITY': {
       const updatedItems = state.items.map(item =>
         item.id === action.payload.id
           ? { ...item, quantity: action.payload.quantity }
@@ -67,6 +69,7 @@ const cartReducer = (state, action) => {
         totalItems: newTotalItems,
         totalPrice: newTotalPrice
       };
+    }
 
     case 'CLEAR_CART':
       return initialState;

@@ -32,7 +32,6 @@ export default function ProduitList() {
   const load = async () => {
     setLoading(true);
     try {
-      const { data } = await getProducts();
       const list = await getProducts();           
       setItems(Array.isArray(list) ? list : []);
     } finally {

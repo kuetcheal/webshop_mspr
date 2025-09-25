@@ -39,7 +39,9 @@ export default function Affiche() {
           columnSpacing={{ xs: 2, md: 3, lg: 4 }}
           rowSpacing={{ xs: 2, md: 0 }}
         >
-          {items.map(({ Icon, text }, i) => (
+          {items.map(({ text }, i) => {
+            const Icon = items[i].Icon;
+            return (
             <Grid
               item
               xs={12}
@@ -70,7 +72,8 @@ export default function Affiche() {
                 </Typography>
               </Stack>
             </Grid>
-          ))}
+            );
+          })}
         </Grid>
       </Container>
     </Box>
